@@ -9,10 +9,12 @@
 * [Build Your Own](#build-your-own)
 * [Additional Demos](#additional-demos)
 
+Pooja's week 3 activity
 
 # Overview
 
-This is a curated list of demos that showcase Apache Kafka® event stream processing on the Confluent Platform, an event stream processing platform that enables you to process, organize, and manage massive amounts of streaming data across cloud, on-prem, and serverless deployments.
+
+ This is a curated list of demos that showcase Apache Kafka® event stream processing on the Confluent Platform, an event stream processing platform that enables you to process, organize, and manage massive amounts of streaming data across cloud, on-prem, and serverless deployments.
 
 <p align="center">
 <a href="http://www.youtube.com/watch?v=muQBd6gry0U" target="_blank"><img src="images/examples-video-thumbnail.jpg" width="360" height="270" border="10" /></a>
