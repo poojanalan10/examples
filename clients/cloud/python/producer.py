@@ -25,6 +25,8 @@
 from confluent_kafka import Producer, KafkaError
 import json
 import ccloud_lib
+import  urllib.request
+import time
 
 
 if __name__ == '__main__':
@@ -63,15 +65,22 @@ if __name__ == '__main__':
             delivered_records += 1
             print("Produced record to topic {} partition [{}] @ offset {}"
                   .format(msg.topic(), msg.partition(), msg.offset()))
+   # with urllib.request.urlopen("http://rbi.ddns.net/getBreadCrumbData") as response:
+   #     breadcrumb = response.read()
+   # data = json.loads(breadcrumb)
+    with open('/home/pnalan/examples/clients/cloud/python/bread_crumb_data.json') as f:
+       data = json.load(f)
 
-    for n in range(10):
-        record_key = "alice"
-        record_value = json.dumps({'count': n})
+    for n in range(1000):
+        record_key = str(n)
+        record_value = json.dumps(data[n])
         print("Producing record: {}\t{}".format(record_key, record_value))
         producer.produce(topic, key=record_key, value=record_value, on_delivery=acked)
+       # time.sleep(0.25)
         # p.poll() serves delivery reports (on_delivery)
         # from previous produce() calls.
         producer.poll(0)
+        
 
     producer.flush()
 
